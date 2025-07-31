@@ -1,10 +1,6 @@
-struct Entity
-{
-    unsigned int id;
-    
-    Entity();
-    ~Entity(){};
+#include  <inttypes.h>
 
-    Entity(const Entity& data)=default;
-    Entity(const Entity&& data);
-};
+using Entity = uint32_t;
+
+const Entity MAX_ENTITIES = 10000;
+
