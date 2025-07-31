@@ -1,4 +1,7 @@
 #top level cmakelist
+# Dependencies
+include(FetchContent)
+
 cmake_minimum_required(VERSION 3.16)
 project(BMDECS VERSION 1.0 LANGUAGES CXX)
 
@@ -19,8 +22,15 @@ elseif (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     add_definitions(-DPLATFORM_MACOS)
 endif()
 
-# Find raylib installed by system package manager
-find_package(raylib REQUIRED)
+# Fetch Raylib
+set(RAYLIB_VERSION 5.5)
+FetchContent_Declare(
+            raylib
+            GIT_REPOSITORY https://github.com/raysan5/raylib.git
+            GIT_TAG ${RAYLIB_VERSION})
+
+set(BUILD_EXAMPLES OFF CACHE INTERNAL "")
+FetchContent_MakeAvailable(raylib)
 
 add_subdirectory(src)
 #add_subdirectory(tests)
