@@ -45,4 +45,7 @@
 build/
 ThirdParty/
 
+#Visual Studio
 .vs/
+out/
+CMakeSettings.json
