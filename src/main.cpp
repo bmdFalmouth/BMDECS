@@ -1,18 +1,12 @@
 #include <iostream>
-#include <raylib.h>
-#include "lib/include/entity.hpp"
+
+#include "lib/ECS/include/entity.hpp"
+#include "lib/Application/include/Application.hpp"
 
 int main() {
-    InitWindow(800, 450, "Raylib Window");
-    SetTargetFPS(60);
-
-    while (!WindowShouldClose()) {
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-        DrawText("Hello from raylib!", 190, 200, 20, LIGHTGRAY);
-        EndDrawing();
-    }
-
-    CloseWindow();
+    Application app;
+    ApplicationData data={.Name="App",.WindowHeight=480,.WindowWidth=640};
+    app.Init(data);
+    app.Run();
     return 0;
 }
