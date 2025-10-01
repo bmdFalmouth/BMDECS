@@ -12,11 +12,8 @@ Application::~Application()
 
 bool Application::Init(const ApplicationData& data)
 {
-    m_AppData.Name=data.Name;
-    m_AppData.WindowHeight=data.WindowHeight;
-    m_AppData.WindowWidth=data.WindowWidth;
-
-    InitWindow(m_AppData.WindowWidth,  m_AppData.WindowHeight,m_AppData.Name.c_str());
+    m_AppData=data;
+    InitWindow(m_AppData.WindowWidth, m_AppData.WindowHeight,m_AppData.Name.c_str());
     SetTargetFPS(60);
 
     return true;

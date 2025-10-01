@@ -14,6 +14,9 @@ public:
     Application();
     ~Application();
 
+    Application(const Application&) = delete;
+    Application& operator=(const Application&)=delete;
+
     void Run();
     bool Init(const ApplicationData& data);
 private:
